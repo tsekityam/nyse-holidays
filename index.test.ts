@@ -1,10 +1,10 @@
 import tap from "tap";
 
-import { getNthDayOf, getLastDayOf } from "./src/common/util";
+import { getNthDay, getLastDay } from "./src/common/util";
 import { isHoliday, getHolidays } from "./src/index";
 
 tap.test("nyse-holidays/common/util", async (tests) => {
-  tests.test("getNthDayOf", async (test) => {
+  tests.test("getNthDay", async (test) => {
     [
       { n: 1, year: 2020, month: 1, day: 1, expected: "Mon Jan 06 2020" },
       { n: 2, year: 2020, month: 2, day: 2, expected: "Tue Feb 11 2020" },
@@ -13,12 +13,12 @@ tap.test("nyse-holidays/common/util", async (tests) => {
       { n: 5, year: 2020, month: 5, day: 5, expected: "Fri May 29 2020" },
     ].forEach((param) => {
       const { expected } = param;
-      const dateString = getNthDayOf(param).toDate().toDateString();
+      const dateString = getNthDay(param).toDate().toDateString();
       test.ok(dateString === expected, `${dateString} === ${expected}`);
     });
   });
 
-  tests.test("getLastDayOf", async (test) => {
+  tests.test("getLastDay", async (test) => {
     [
       { year: 2020, month: 1, day: 1, expected: "Mon Jan 27 2020" },
       { year: 2020, month: 2, day: 2, expected: "Tue Feb 25 2020" },
@@ -27,7 +27,7 @@ tap.test("nyse-holidays/common/util", async (tests) => {
       { year: 2020, month: 5, day: 5, expected: "Fri May 29 2020" },
     ].forEach((param) => {
       const { expected } = param;
-      const dateString = getLastDayOf(param).toDate().toDateString();
+      const dateString = getLastDay(param).toDate().toDateString();
       test.ok(dateString === expected, `${dateString} === ${expected}`);
     });
   });

@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 
-export const getDateFor = (param: {
+export const getDate = (param: {
   year: number;
   month: number;
   day?: number;
@@ -9,7 +9,7 @@ export const getDateFor = (param: {
   return dayjs(`${year}-${month}-${day ?? 1}`, "YYYY-MM-DD");
 };
 
-export const getNthDayOf = (param: {
+export const getNthDay = (param: {
   n: number;
   year: number;
   month: number;
@@ -17,7 +17,7 @@ export const getNthDayOf = (param: {
 }): dayjs.Dayjs => {
   const { n, year, month, day } = param;
 
-  let result = getDateFor({ month, year }).day(day);
+  let result = getDate({ month, year }).day(day);
 
   if (result.month() !== month - 1) {
     result = result.add(1, "week");
@@ -28,14 +28,14 @@ export const getNthDayOf = (param: {
   return result;
 };
 
-export const getLastDayOf = (param: {
+export const getLastDay = (param: {
   year: number;
   month: number;
   day: number;
 }): dayjs.Dayjs => {
   const { year, month, day } = param;
 
-  const daysInMonth = dayjs(getDateFor({ month, year })).daysInMonth();
+  const daysInMonth = dayjs(getDate({ month, year })).daysInMonth();
   const lastDayOfMonth = dayjs(`${year}-${month}-${daysInMonth}`, "YYYY-MM-DD");
 
   let result = lastDayOfMonth.day(day);
@@ -47,7 +47,7 @@ export const getLastDayOf = (param: {
   return result;
 };
 
-const getEasterSundayOf = (param: { year: number }): dayjs.Dayjs => {
+const getEasterSunday = (param: { year: number }): dayjs.Dayjs => {
   const { year } = param;
 
   /* credit: https://gist.github.com/johndyer/0dffbdd98c2046f41180c051f378f343 */
@@ -66,10 +66,10 @@ const getEasterSundayOf = (param: { year: number }): dayjs.Dayjs => {
     month = 3 + f((L + 40) / 44),
     day = L + 28 - 31 * f(month / 4);
 
-  return getDateFor({ year, month, day });
+  return getDate({ year, month, day });
 };
 
-export const getGoodFridayOf = (param: { year: number }): dayjs.Dayjs => {
+export const getGoodFriday = (param: { year: number }): dayjs.Dayjs => {
   const { year } = param;
-  return getEasterSundayOf({ year }).subtract(2, "days");
+  return getEasterSunday({ year }).subtract(2, "days");
 };
