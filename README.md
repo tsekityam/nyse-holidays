@@ -2,6 +2,8 @@
 
 Get all NYSE markets observe U.S. holidays
 
+[![Node.js CI](https://github.com/tsekityam/nyse-holidays/actions/workflows/test.yml/badge.svg)](https://github.com/tsekityam/nyse-holidays/actions/workflows/test.yml)
+
 ## Installation
 
 `yarn add nyse-holidays`
@@ -66,3 +68,5 @@ console.log(getHolidays(2021));
 ]
 */
 ```
+
+[CodeSandbox](https://codesandbox.io/s/ts-example-o8smc)
