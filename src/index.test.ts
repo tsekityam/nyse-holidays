@@ -1,7 +1,7 @@
 import tap from "tap";
 
-import { getNthDay, getLastDay } from "./src/common/util";
-import { isHoliday, getHolidays } from "./src/index";
+import { getNthDay, getLastDay } from "./common/util";
+import { isHoliday, getHolidays } from "./index";
 
 tap.test("nyse-holidays/common/util", async (tests) => {
   tests.test("getNthDay", async (test) => {
