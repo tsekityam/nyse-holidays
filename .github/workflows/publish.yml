@@ -3,19 +3,39 @@ on:
   release:
     types: [created]
 jobs:
-  build:
+  publish-npm:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v2
         with:
-          node-version: "14.x"
-          registry-url: "https://registry.npmjs.org"
+          node-version: 14.x
+          registry-url: https://registry.npmjs.org/
       - run: yarn
       - run: yarn lint
       - run: yarn test
       - run: yarn build
       - run: yarn publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+  publish-gpr:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+          registry-url: https://npm.pkg.github.com/
+      - run: yarn
+      - run: yarn lint
+      - run: yarn test
+      - run: yarn build
+      - run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
