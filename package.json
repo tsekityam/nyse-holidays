@@ -30,6 +30,7 @@
     "test": "tap --node-arg=--require=ts-node/register './src/index.test.ts'"
   },
   "keywords": [
-    "holidays, nyse"
+    "holidays",
+    "nyse"
   ]
 }
