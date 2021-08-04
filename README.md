@@ -3,6 +3,7 @@
 Get all NYSE markets observe U.S. holidays
 
 [![Node.js CI](https://github.com/tsekityam/nyse-holidays/actions/workflows/test.yml/badge.svg)](https://github.com/tsekityam/nyse-holidays/actions/workflows/test.yml)
+[![codecov](https://codecov.io/gh/tsekityam/nyse-holidays/branch/main/graph/badge.svg?token=gZOvThQpTV)](https://codecov.io/gh/tsekityam/nyse-holidays)
 
 ## Installation
 
