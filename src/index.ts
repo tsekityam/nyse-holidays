@@ -12,7 +12,7 @@ export const getHolidays = (year: number): Holiday[] => {
     return [];
   }
 
-  let holidays: { name: string; date: dayjs.Dayjs }[] = [];
+  const holidays: { name: string; date: dayjs.Dayjs }[] = [];
 
   const newYearsDay = NewYearsDay(year);
   newYearsDay && holidays.push(newYearsDay);
