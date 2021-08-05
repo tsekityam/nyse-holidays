@@ -11,6 +11,7 @@
     "dayjs": "^1.10.6"
   },
   "devDependencies": {
+    "@istanbuljs/nyc-config-typescript": "^1.0.1",
     "@types/jest": "^26.0.24",
     "@types/node": "^16.4.10",
     "@typescript-eslint/eslint-plugin": "^4.29.0",
@@ -22,6 +23,7 @@
     "mocha": "^9.0.3",
     "nyc": "^15.1.0",
     "prettier": "^2.3.2",
+    "source-map-support": "^0.5.19",
     "ts-node": "^10.1.0",
     "typescript": "^4.3.5"
   },
@@ -29,7 +31,7 @@
     "build": "tsc",
     "lint": "eslint --ignore-path '.gitignore' '**/*.ts'",
     "format": "prettier --ignore-unknown --ignore-path '.gitignore' --write '**/*'",
-    "test": "nyc mocha --require ts-node/register test/test.ts",
+    "test": "nyc mocha",
     "posttest": "nyc report --reporter=text-lcov | codecov --pipe"
   },
   "keywords": [

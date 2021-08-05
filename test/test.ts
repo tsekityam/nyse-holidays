@@ -1,6 +1,6 @@
 import assert from "assert";
-import { getNthDay, getLastDay } from "../src/common/util";
-import { getHolidays, isHoliday } from "../src";
+import { getNthDay, getLastDay } from "../lib/common/util";
+import { getHolidays, isHoliday } from "../lib/index";
 
 describe("nyse-holidays/common/util", function () {
   describe("getNthDay", function () {
