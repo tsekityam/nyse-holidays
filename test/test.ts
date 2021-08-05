@@ -1,10 +1,9 @@
-import tap from "tap";
-
+import assert from "assert";
 import { getNthDay, getLastDay } from "../src/common/util";
-import { isHoliday, getHolidays } from "../src/index";
+import { getHolidays, isHoliday } from "../src";
 
-tap.test("nyse-holidays/common/util", async (tests) => {
-  tests.test("getNthDay", async (test) => {
+describe("nyse-holidays/common/util", function () {
+  describe("getNthDay", function () {
     [
       { n: 1, year: 2020, month: 1, day: 1, expected: "Mon Jan 06 2020" },
       { n: 2, year: 2020, month: 2, day: 2, expected: "Tue Feb 11 2020" },
@@ -12,13 +11,21 @@ tap.test("nyse-holidays/common/util", async (tests) => {
       { n: 4, year: 2020, month: 4, day: 4, expected: "Thu Apr 23 2020" },
       { n: 5, year: 2020, month: 5, day: 5, expected: "Fri May 29 2020" },
     ].forEach((param) => {
-      const { expected } = param;
+      const { n, year, month, day, expected } = param;
       const dateString = getNthDay(param).toDate().toDateString();
-      test.ok(dateString === expected, `${dateString} === ${expected}`);
+
+      it(`should return ${expected} for getNthDay(${JSON.stringify({
+        n,
+        year,
+        month,
+        day,
+      })}).toDate().toDateString()`, function () {
+        assert.equal(dateString, expected);
+      });
     });
   });
 
-  tests.test("getLastDay", async (test) => {
+  describe("getLastDay", function () {
     [
       { year: 2020, month: 1, day: 1, expected: "Mon Jan 27 2020" },
       { year: 2020, month: 2, day: 2, expected: "Tue Feb 25 2020" },
@@ -26,15 +33,22 @@ tap.test("nyse-holidays/common/util", async (tests) => {
       { year: 2020, month: 4, day: 4, expected: "Thu Apr 30 2020" },
       { year: 2020, month: 5, day: 5, expected: "Fri May 29 2020" },
     ].forEach((param) => {
-      const { expected } = param;
+      const { year, month, day, expected } = param;
       const dateString = getLastDay(param).toDate().toDateString();
-      test.ok(dateString === expected, `${dateString} === ${expected}`);
+
+      it(`should return ${expected} for getLastDay(${JSON.stringify({
+        year,
+        month,
+        day,
+      })}).toDate().toDateString()`, function () {
+        assert.equal(dateString, expected);
+      });
     });
   });
 });
 
-tap.test("nyse-holidays", async (tests) => {
-  tests.test("isHoliday", async (test) => {
+describe("nyse-holidays", function () {
+  describe("isHoliday", function () {
     [
       /*
        * source: https://nyseholidays.blogspot.com/2012/08/NYSE-Holidays-1891-1990.html
@@ -96,14 +110,14 @@ tap.test("nyse-holidays", async (tests) => {
     ].forEach((param) => {
       const { day, month, year, expected } = param;
       const date = new Date(`${year}-${month}-${day}`);
-      test.ok(
-        isHoliday(date) === expected,
-        `isHoliday(${date.toDateString()}) === ${expected}`
-      );
+
+      it(`should return ${expected} for isHoliday(${date.toDateString()})`, function () {
+        assert.equal(isHoliday(date), expected);
+      });
     });
   });
 
-  tests.test("getHolidays", async (test) => {
+  describe("getHolidays", function () {
     [
       { year: 1800, expected: 0 },
       { year: 2021, expected: 9 },
@@ -111,13 +125,13 @@ tap.test("nyse-holidays", async (tests) => {
       { year: 2023, expected: 9 },
     ].forEach((param) => {
       const { year, expected } = param;
+      const length = getHolidays(year).length;
 
-      test.ok(
-        getHolidays(year).length === expected,
-        `getHolidays(${year}).length = ${
-          getHolidays(year).length
-        } === ${expected}`
-      );
+      it(`should return ${expected} for getHolidays(${JSON.stringify({
+        year,
+      })}).length`, function () {
+        assert.equal(length, expected);
+      });
     });
   });
 });
