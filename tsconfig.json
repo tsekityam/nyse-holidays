@@ -1,13 +1,9 @@
 {
+  "extends": "@tsconfig/recommended/tsconfig.json",
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
     "declaration": true,
-    "outDir": "./lib",
-    "removeComments": true,
-    "sourceMap": true,
-    "strict": true,
-    "esModuleInterop": true
+    "outDir": "dist",
+    "removeComments": true
   },
-  "exclude": ["**/test.ts", "lib"]
+  "exclude": ["src/**/*.spec.ts", "dist"]
 }
