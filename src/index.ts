@@ -111,12 +111,12 @@ export const isHoliday = (date: Date): boolean => {
   );
 };
 
-function NewYearsDay(year: number) {
+const NewYearsDay = (year: number) => {
   // Closed every year.
   return { name: "New Years Day", date: getDate({ year, month: 1, day: 1 }) };
-}
+};
 
-function MartinLutherKingJrDay(year: number) {
+const MartinLutherKingJrDay = (year: number) => {
   // Closed all day beginning in 1998.
   if (year >= 1998) {
     return {
@@ -124,9 +124,9 @@ function MartinLutherKingJrDay(year: number) {
       date: getNthDay({ n: 3, year, month: 1, day: 1 }),
     };
   }
-}
+};
 
-function LincolnsBirthday(year: number) {
+const LincolnsBirthday = (year: number) => {
   // Closed every year, 1896-1953.
   if (year >= 1896 && year <= 1953) {
     return {
@@ -134,9 +134,9 @@ function LincolnsBirthday(year: number) {
       date: getDate({ year, month: 2, day: 12 }),
     };
   }
-}
+};
 
-function WashingtonsBirthday(year: number) {
+const WashingtonsBirthday = (year: number) => {
   // Closed every year. Observed on Mondays since 1971.
   const name = "Washington's Birthday";
 
@@ -151,9 +151,9 @@ function WashingtonsBirthday(year: number) {
     name,
     date: getDate({ year, month: 2, day: 22 }),
   };
-}
+};
 
-function GoodFriday(year: number) {
+const GoodFriday = (year: number) => {
   // Closed every year except 1898, 1906 and 1907.
   if (year === 1898 || year === 1906 || year === 1907) {
     return undefined;
@@ -163,9 +163,9 @@ function GoodFriday(year: number) {
     name: "Good Friday",
     date: getGoodFriday({ year }),
   };
-}
+};
 
-function MemorialDay(year: number) {
+const MemorialDay = (year: number) => {
   // Closed every year since 1873. Observed on Mondays since 1971.
   const name = "Memorial Day";
 
@@ -180,17 +180,17 @@ function MemorialDay(year: number) {
       date: getDate({ year, month: 5, day: 30 }),
     };
   }
-}
+};
 
-function IndependenceDay(year: number) {
+const IndependenceDay = (year: number) => {
   // Closed every year.
   return {
     name: "Independence Day",
     date: getDate({ year, month: 7, day: 4 }),
   };
-}
+};
 
-function LaborDay(year: number) {
+const LaborDay = (year: number) => {
   // Closed every year, 1887-date.
   if (year >= 1887) {
     return {
@@ -198,9 +198,9 @@ function LaborDay(year: number) {
       date: getNthDay({ n: 1, year, month: 9, day: 1 }),
     };
   }
-}
+};
 
-function ColumbusDay(year: number) {
+const ColumbusDay = (year: number) => {
   // Closed every year, 1909-1953.
   if (year >= 1909 && year <= 1953) {
     return {
@@ -208,9 +208,9 @@ function ColumbusDay(year: number) {
       date: getDate({ year, month: 10, day: 12 }),
     };
   }
-}
+};
 
-function ElectionDay(year: number) {
+const ElectionDay = (year: number) => {
   // Closed every year through 1968. Closed presidential election years only, 1972-1980.
   if (year <= 1968 || year === 1972 || year === 1976 || year === 1980) {
     const date = getNthDay({ n: 1, year, month: 11, day: 1 }).add(1, "day");
@@ -219,9 +219,9 @@ function ElectionDay(year: number) {
       date,
     };
   }
-}
+};
 
-function VeteransDay(year: number) {
+const VeteransDay = (year: number) => {
   // Closed all day, 1918 and 1921.
   // Closed all day, 1934-1953.
   if (year === 1918 || year === 1921 || (year >= 1934 && year <= 1953)) {
@@ -230,17 +230,17 @@ function VeteransDay(year: number) {
       date: getDate({ year, month: 11, day: 11 }),
     };
   }
-}
+};
 
-function ThanksgivingDay(year: number) {
+const ThanksgivingDay = (year: number) => {
   // Closed every year.
   return {
     name: "Thanksgiving Day",
     date: getNthDay({ n: 4, year, month: 11, day: 4 }),
   };
-}
+};
 
-function ChristmasDay(year: number) {
+const ChristmasDay = (year: number) => {
   // Closed every year.
   return { name: "Christmas Day", date: getDate({ year, month: 12, day: 25 }) };
-}
+};
