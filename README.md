@@ -2,6 +2,7 @@
 
 Get all NYSE markets observe U.S. holidays since 1885
 
+[![npm version](https://badge.fury.io/js/nyse-holidays.svg)](https://badge.fury.io/js/nyse-holidays)
 [![Node.js CI](https://github.com/tsekityam/nyse-holidays/actions/workflows/test.yml/badge.svg)](https://github.com/tsekityam/nyse-holidays/actions/workflows/test.yml)
 [![codecov](https://codecov.io/gh/tsekityam/nyse-holidays/branch/main/graph/badge.svg?token=gZOvThQpTV)](https://codecov.io/gh/tsekityam/nyse-holidays)
 [![Known Vulnerabilities](https://snyk.io/test/github/tsekityam/nyse-holidays/badge.svg)](https://snyk.io/test/github/tsekityam/nyse-holidays)
