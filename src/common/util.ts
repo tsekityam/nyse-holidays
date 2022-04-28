@@ -28,6 +28,28 @@ export const getNthDay = (param: {
   return result;
 };
 
+export const getNextPreviousWorkDay = (param: {
+  year: number;
+  month: number;
+  day: number;
+}): dayjs.Dayjs => {
+  const { year, month, day } = param;
+
+  let result = getDate({ month, year, day });
+
+  if (result.day() == 0) {
+    //sunday
+    result = result.add(1, "day");
+  }
+
+  if (result.day() == 6) {
+    //saturday
+    result = result.subtract(1, "day");
+  }
+
+  return result;
+};
+
 export const getLastDay = (param: {
   year: number;
   month: number;
