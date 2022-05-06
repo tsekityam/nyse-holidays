@@ -8,7 +8,7 @@
   "author": "Tse Kit Yam <tsekityam@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
-    "dayjs": "^1.10.6"
+    "dayjs": "^1.11.1"
   },
   "devDependencies": {
     "@istanbuljs/nyc-config-typescript": "^1.0.1",
