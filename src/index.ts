@@ -1,5 +1,11 @@
 import dayjs from "dayjs";
-import { getDate, getGoodFriday, getLastDay, getNthDay } from "./common/util";
+import {
+  getDate,
+  getGoodFriday,
+  getLastDay,
+  getNextPreviousWorkDay,
+  getNthDay,
+} from "./common/util";
 
 export type Holiday = {
   name: string;
@@ -31,6 +37,9 @@ export const getHolidays = (year: number): Holiday[] => {
 
   const memorialDay = MemorialDay(year);
   memorialDay && holidays.push(memorialDay);
+
+  const juneteenthDay = JuneteenthDay(year);
+  juneteenthDay && holidays.push(juneteenthDay);
 
   const independenceDay = IndependenceDay(year);
   independenceDay && holidays.push(independenceDay);
@@ -178,6 +187,16 @@ const MemorialDay = (year: number) => {
     return {
       name,
       date: getDate({ year, month: 5, day: 30 }),
+    };
+  }
+};
+
+const JuneteenthDay = (year: number) => {
+  // June 19th of each year going forward. If Saturday, closed the preceding Friday – if Sunday, closed the succeeding Monday.
+  if (year >= 2022) {
+    return {
+      name: "Juneteenth National Independence Day",
+      date: getNextPreviousWorkDay({ year, month: 6, day: 19 }),
     };
   }
 };

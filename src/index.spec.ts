@@ -48,6 +48,11 @@ describe("nyse-holidays", function () {
       { year: 2022, month: 2, day: 21, expected: true }, // Washington's Birthday
       { year: 2022, month: 4, day: 15, expected: true }, // Good Friday
       { year: 2022, month: 5, day: 30, expected: true }, // Memorial Day
+      /**
+       * starting 2022 is Juneteenth National Intependence Day
+       * https://www.cmegroup.com/content/dam/cmegroup/notices/ser/2021/12/SER-8887.pdf
+       */
+      { year: 2022, month: 6, day: 20, expected: true }, // Juneteenth National Independence Day
       { year: 2022, month: 7, day: 4, expected: true }, // Independence Day
       { year: 2022, month: 9, day: 5, expected: true }, // Labor Day
       { year: 2022, month: 11, day: 24, expected: true }, // Thanksgiving Day
@@ -58,6 +63,7 @@ describe("nyse-holidays", function () {
       { year: 2023, month: 4, day: 7, expected: true }, // Good Friday
       { year: 2023, month: 5, day: 29, expected: true }, // Memorial Day
       { year: 2023, month: 7, day: 4, expected: true }, // Independence Day
+      { year: 2023, month: 6, day: 19, expected: true }, // Juneteenth National Independence Day
       { year: 2023, month: 9, day: 4, expected: true }, // Labor Day
       { year: 2023, month: 11, day: 23, expected: true }, // Thanksgiving Day
       { year: 2023, month: 12, day: 25, expected: true }, // Christmas Day
@@ -75,8 +81,8 @@ describe("nyse-holidays", function () {
     [
       { year: 1800, expected: 0 },
       { year: 2021, expected: 9 },
-      { year: 2022, expected: 8 },
-      { year: 2023, expected: 9 },
+      { year: 2022, expected: 9 },
+      { year: 2023, expected: 10 },
     ].forEach((param) => {
       const { year, expected } = param;
       const length = getHolidays(year).length;
