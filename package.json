@@ -36,9 +36,7 @@
     "posttest": "nyc report --reporter=text-lcov | codecov --pipe"
   },
   "files": [
-    "dist",
-    "src",
-    "tsconfig.json"
+    "dist"
   ],
   "keywords": [
     "holidays",
