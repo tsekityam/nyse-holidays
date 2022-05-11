@@ -1,5 +1,5 @@
 import assert from "assert";
-import { getNthDay, getLastDay } from "./util";
+import { getNthDay, getLastDay, getNextPreviousWorkDay } from "./util";
 
 describe("nyse-holidays/common/util", function () {
   describe("getNthDay", function () {
@@ -40,6 +40,28 @@ describe("nyse-holidays/common/util", function () {
         month,
         day,
       })}).toDate().toDateString()`, function () {
+        assert.equal(dateString, expected);
+      });
+    });
+  });
+
+  describe("getNextPreviousWorkDay", function () {
+    [
+      { year: 2022, month: 5, day: 6, expected: "Fri May 06 2022" },
+      { year: 2022, month: 5, day: 7, expected: "Fri May 06 2022" },
+      { year: 2022, month: 5, day: 8, expected: "Mon May 09 2022" },
+      { year: 2022, month: 5, day: 9, expected: "Mon May 09 2022" },
+    ].forEach((param) => {
+      const { year, month, day, expected } = param;
+      const dateString = getNextPreviousWorkDay(param).toDate().toDateString();
+
+      it(`should return ${expected} for getNextPreviousWorkDay(${JSON.stringify(
+        {
+          year,
+          month,
+          day,
+        }
+      )}).toDate().toDateString()`, function () {
         assert.equal(dateString, expected);
       });
     });
