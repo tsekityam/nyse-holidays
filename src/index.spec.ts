@@ -49,7 +49,7 @@ describe("nyse-holidays", function () {
       { year: 2022, month: 4, day: 15, expected: true }, // Good Friday
       { year: 2022, month: 5, day: 30, expected: true }, // Memorial Day
       /**
-       * starting 2022 is Juneteenth National Intependence Day 
+       * starting 2022 is Juneteenth National Intependence Day
        * https://www.cmegroup.com/content/dam/cmegroup/notices/ser/2021/12/SER-8887.pdf
        */
       { year: 2022, month: 6, day: 20, expected: true }, // Juneteenth National Independence Day
