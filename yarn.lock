@@ -340,9 +340,9 @@
   integrity sha512-Z61JK7DKDtdKTWwLeElSEBcWGRLY8g95ic5FoQqI9CMx0ns/Ghep3B4DfcEimiKMvtamNVULVNKEsiwV3aQmXw==
 
 "@types/node@^16.4.10":
-  version "16.11.36"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.36.tgz#9ab9f8276987132ed2b225cace2218ba794fc751"
-  integrity sha512-FR5QJe+TaoZ2GsMHkjuwoNabr+UrJNRr2HNOo+r/7vhcuntM6Ee/pRPOnRhhL2XE9OOvX9VLEq+BcXl3VjNoWA==
+  version "16.11.50"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.50.tgz#525c91f5555bd48b698a1c2b422d9d3b84d07e80"
+  integrity sha512-JKSl7y+w1aaEd+2B1Y6HlMvrHUFDDzL7W3faUT9ZsJ0JhT7ijPPVS24XMhHlNVd76M23mogO7ipuqPjdNrPqxQ==
 
 "@typescript-eslint/eslint-plugin@^5.12.1":
   version "5.26.0"
